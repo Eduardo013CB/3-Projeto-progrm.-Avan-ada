@@ -1,0 +1,30 @@
+#include "CutSphere.hpp"
+#include <cmath>
+#include <iostream>
+
+CutSphere::CutSphere(int xcenter, int ycenter, int zcenter, int radius){
+
+
+  this->xcenter=xcenter;
+  this->ycenter=ycenter;
+  this->zcenter=zcenter;
+}
+
+CutSphere::~CutSphere()
+{
+
+}
+
+void CutSphere::draw(Sculptor &s){
+    int x,y,z,dxs,dys,dzs;
+    for(x=xcenter-radius; x<=xcenter+radius; x++){
+        for(y=ycenter-radius; y<=ycenter+radius; y++){
+            for(z=zcenter-radius; z<=zcenter+radius; z++){
+                dxs=x-xcenter; dys=y-ycenter;dzs=z-zcenter;
+                if((pow(dxs,2)+pow(dys,2)+pow(dzs,2))<=pow(radius,2)){
+                    s.cutVoxel(x,y,z);
+                }
+            }
+        }
+    }
+}

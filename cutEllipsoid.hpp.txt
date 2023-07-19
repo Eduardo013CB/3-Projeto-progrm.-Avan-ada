@@ -1,0 +1,17 @@
+#ifndef CUTELLIPSOID_H
+#define CUTELLIPSOID_H
+#include "FiguraGeometrica.hpp"
+#include "sculptor.hpp"
+
+class CutEllipsoid : public FiguraGeometrica{
+private:
+    int xcenter,ycenter, zcenter, rx, ry, rz; //Posicao
+public:
+    CutEllipsoid(int xcenter, int ycenter, int zcenter, int rx,int ry, int rz);
+    ~CutEllipsoid();
+
+    void draw(Sculptor &s);
+};
+
+
+#endif // CUTELLIPSOID_H
